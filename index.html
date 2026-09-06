@@ -2,41 +2,43 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Redirigiendo...</title>
 
-  <!-- Meta Pixel Code Base -->
+  <!-- Meta Pixel Code -->
   <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    
-    fbq('init', '2192722984920622');
-    fbq('track', 'PageView');
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2192722984920622');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2192722984920622&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
 
-    // 1. Datos de redirección y evento
-    var eventID = 'contact_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
-    var whatsappUrl = "https://wa.me/525522503978?text=Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20servicio!!";
+  <script>
+    (function() {
+      var eventID = 'contact_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
+      var whatsappUrl = "https://wa.me/525522503978?text=Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20servicio!!";
 
-    // 2. Disparar el evento de conversión en Meta
-    fbq('track', 'Contact', {
-      value: 5.00,
-      currency: 'MXN'
-    }, { eventID: eventID });
+      // Disparar evento de Meta Pixel
+      if (typeof fbq === 'function') {
+        fbq('track', 'Contact', {
+          value: 5.00,
+          currency: 'MXN'
+        }, { eventID: eventID });
+      }
 
-    // 3. Redirección inmediata (0ms)
-    window.location.replace(whatsappUrl);
+      // Redirección instantánea sin delay
+      window.location.replace(whatsappUrl);
+    })();
   </script>
 </head>
-<body style="background-color: #ffffff; margin: 0;">
-  <!-- Fallback ultraligero por si el navegador bloquea la redirección JS -->
-  <noscript>
-    <meta http-equiv="refresh" content="0;url=https://wa.me/525522503978?text=Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20servicio!!">
-  </noscript>
-</body>
+<body style="background-color: #ffffff;"></body>
 </html>
