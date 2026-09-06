@@ -1,69 +1,131 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Cargando...</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargando...</title>
 
-  <!-- Meta Pixel Code -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '2192722984920622');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=2192722984920622&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    
+    fbq('init', '2192722984920622');
+    fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2192722984920622&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Meta Pixel Code -->
 
-  <script>
-    (function() {
-      var eventID = 'contact_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
-      var whatsappUrl = "https://wa.me/525522503978?text=Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20servicio!!";
-      var redirected = false;
-
-      function triggerEventAndRedirect() {
-        if (redirected) return;
-        redirected = true;
-
-        // Disparar el evento
-        if (typeof fbq === 'function') {
-          fbq('track', 'Contact', {
-            value: 5.00,
-            currency: 'MXN'
-          }, { eventID: eventID });
+    <style>
+        :root {
+            --bg-accent: #30294a;
+            --bg-mid: #191824;
+            --bg-dark: #0d0d13;
+            --card-bg: rgba(255, 255, 255, 0.075);
+            --card-border: rgba(255, 255, 255, 0.11);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.68);
+            --brand-primary: #a493ed;
+            --btn-text: #171622;
         }
 
-        // Pequeña pausa de red para asegurar que el paquete de Meta salga del navegador
-        setTimeout(function() {
-          window.location.replace(whatsappUrl);
-        }, 100);
-      }
-
-      // Si el archivo del Pixel ya cargó, ejecuta inmediatamente
-      if (window.fbq && window.fbq.loaded) {
-        triggerEventAndRedirect();
-      } else {
-        // Si aún está descargando fbevents.js, espera al evento de carga del script
-        var pixelScript = document.querySelector('script[src*="fbevents.js"]');
-        if (pixelScript) {
-          pixelScript.onload = triggerEventAndRedirect;
-          pixelScript.onerror = triggerEventAndRedirect; // Si falla o hay adblock, redirige igual
-        } else {
-          triggerEventAndRedirect();
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        // Respaldo de seguridad (máximo 800ms) para que no se quede trabado en conexiones muy lentas
-        setTimeout(triggerEventAndRedirect, 800);
-      }
-    })();
-  </script>
+        html, body {
+            width: 100%;
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: radial-gradient(circle at 10% 10%, var(--bg-accent) 0%, var(--bg-mid) 35%, var(--bg-dark) 80%);
+            color: var(--text-primary);
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 22px;
+        }
+
+        .pagina {
+            width: 100%;
+            max-width: 470px;
+            text-align: center;
+        }
+
+        .tarjeta {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 25px;
+            padding: 43px 30px 34px;
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.38);
+        }
+
+        .boton {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            padding: 17px 22px;
+            border-radius: 13px;
+            background: linear-gradient(135deg, #ffffff, #ddd6ff);
+            color: var(--btn-text);
+            border: 1px solid rgba(255, 255, 255, 0.75);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 700;
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
 </head>
-<body style="background-color: #ffffff; margin:0; padding:0;"></body>
+
+<body>
+
+    <main class="pagina">
+        <section class="tarjeta">
+            <p style="margin-bottom: 20px; color: var(--text-secondary);">Abriendo WhatsApp...</p>
+            <a id="boton-contacto" class="boton" href="https://wa.me/525522503978?text=Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20servicio!!">
+                <span>Haz clic aquí si no abre automáticamente</span>
+            </a>
+        </section>
+    </main>
+
+    <!-- REDIRECCIÓN E INFORME DE EVENTO -->
+    <script>
+        (function() {
+            var destino = "https://wa.me/525522503978?text=Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20servicio!!";
+            var eventID = 'contact_' + Date.now() + '_' + Math.random().toString(36).substring(2, 9);
+
+            // 1. Registrar el evento de Pixel correctamente formateado
+            if (typeof fbq === 'function') {
+                fbq('track', 'Contact', {
+                    value: 5.00,   
+                    currency: 'MXN'
+                }, { eventID: eventID });
+            }
+
+            // 2. Función de redirección optimizada para WebView de Android/iOS y navegadores móviles
+            function redirigir() {
+                window.location.href = destino;
+            }
+
+            // 3. Pequeña pausa (300ms) para garantizar que el Pixel envíe el beacon antes de salir
+            setTimeout(redirigir, 300);
+        })();
+    </script>
+</body>
 </html>
